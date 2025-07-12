@@ -1,0 +1,42 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+*/.pytest_cache/
+.mypy_cache/
+.dmypy.json
+celerybeat-schedule
+.vscode/
+
+# Flask-specific
+instance/
+.flaskenv
+
+# Database
+# For SQLite, the database file
+siem.db
+*.sqlite3
+*.db
+*.db-* # for potential Flask-SQLAlchemy-generated temp files
+
+# Logs
+*.log
+logs/
+run.log
+
+# IDEs
+.idea/             # PyCharm
+*.iml              # PyCharm
+*.ipr              # PyCharm
+*.iws              # PyCharm
+.vscode/           # VS Code (if not managed by specific user settings)
+
+# OS generated files
+.DS_Store
+.Trashes
+Thumbs.db

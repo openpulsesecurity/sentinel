@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>SentinelSNMP - All Events</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    h1 { color: #333; }
+    table { border-collapse: collapse; width: 100%; margin-top: 20px; }
+    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+    th { background-color: #f2f2f2; color: #555; }
+    tr:nth-child(even) { background-color: #f9f9f9; }
+    tr:hover { background-color: #f1f1f1; }
+
+    /* Severity Colors */
+    .severity-critical { background-color: #ffcccc; } /* Light red */
+    .severity-high { background-color: #ffe0b3; }    /* Light orange */
+    .severity-medium { background-color: #ffffcc; }   /* Light yellow */
+    .severity-low { background-color: #e6ffe6; }      /* Light green */
+    .severity-informational { background-color: #e0f2f7; } /* Light blue */
+    .severity-unknown { background-color: #f0f0f0; }   /* Light grey */
+  </style>
+</head>
+<body>
+  <h1>SentinelSNMP - Recent Events</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Timestamp (UTC)</th>
+        <th>Type</th>
+        <th>Severity</th>
+        <th>Source IP</th>
+        <th>OID (if SNMP)</th>
+        <th>Value / Message</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for event in events %}
+      <tr class="severity-{{ event.severity.lower() }}">
+        <td>{{ event.timestamp.strftime('%Y-%m-%d %H:%M:%S') }}</td>
+        <td>{{ event.event_type.replace('_', ' ').title() }}</td>
+        <td>{{ event.severity }}</td>
+        <td>{{ event.source_ip }}</td>
+        <td>{{ event.oid if event.oid else 'N/A' }}</td>
+        <td>{{ event.value }}</td>
+      </tr>
+      {% else %}
+      <tr><td colspan="6">No events found.</td></tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</body>
+</html>
