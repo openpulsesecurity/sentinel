@@ -26,8 +26,8 @@ Follow these steps to get Sentinel up and running on your system.
 
 1.  **Clone the repository:**
     ```bash
-    git clone https://github.com/yourusername/Sentinel.git # Replace with your actual repo URL
-    cd Sentinel
+    git clone https://gitlab.com/blakeridgway/sentinel.git
+    cd sentinel
     ```
 
 2.  **Create and activate a Python virtual environment:**
