@@ -26,7 +26,7 @@ Follow these steps to get Sentinel up and running on your system.
 
 1.  **Clone the repository:**
     ```bash
-    git clone https://github.com/openpulsesecurity/openpulsesec_web.git
+    git clone https://github.com/openpulsesecurity/sentinel.git
     cd sentinel
     ```
 
